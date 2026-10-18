@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web - Romery</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .tarjeta {
+            background-color: #1e293b;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        h1 {
+            color: #38bdf8;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        p.descripcion {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Botones de intereses */
+        .intereses {
+            margin: 25px 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .intereses li button {
+            background-color: #334155;
+            color: #38bdf8;
+            border: 2px solid transparent;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .intereses li button:hover {
+            background-color: #38bdf8;
+            color: #0f172a;
+            transform: scale(1.05);
+        }
+
+        /* Caja de contenido visual con fotos y texto */
+        .caja-contenido {
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: left;
+            color: #e2e8f0;
+        }
+
+        .seccion-info {
+            display: none;
+        }
+
+        .seccion-info.activo {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .seccion-info h3 {
+            color: #38bdf8;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .grid-galeria {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .item-galeria {
+            background-color: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #334155;
+        }
+
+        .item-galeria img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-galeria .texto-foto {
+            padding: 12px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+
+        .item-galeria .texto-foto strong {
+            color: #f8fafc;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Estilo para los botones de contacto/redes */
+        .redes-sociales {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-social {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn-social:hover {
+            background-color: #0284c7;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tarjeta" id="miTarjeta">
+        <h1>¡Hola, soy Romery!</h1>
+        <p class="descripcion">Haz clic en cada botón de abajo para desplegar sus respectivas galerías con fotos explicativas:</p>
+        
+        <!-- Botones interactivos -->
+        <ul class="intereses">
+            <li><button onclick="mostrarSeccion('informatica')">💻 Informática</button></li>
+            <li><button onclick="mostrarSeccion('cafe')">☕ Café & Negocios</button></li>
+            <li><button onclick="mostrarSeccion('programacion')">🚀 Programación</button></li>
+            <li><button onclick="mostrarSeccion('diseno')">🎨 Diseño Web</button></li>
+        </ul>
+
+        <!-- Pantalla dinámica contenedora -->
+        <div class="caja-contenido">
+            
+            <!-- INFORMÁTICA -->
+            <div id="informatica" class="seccion-info activo">
+                <h3>💻 Informática & Sistemas</h3>
+                <p style="color: #94a3b8; margin-bottom: 15px;">Explorando la infraestructura tecnológica y componentes clave de los sistemas modernos.</p>
+                <div class="grid-galeria">
+                    <div class="item-galeria">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=60" alt="Servidores">
+                        <div class="texto-foto">
+                            <strong>Infraestructura</strong>
+                            Optimización y gestión de servidores y redes.
+                        </div>
+                    </div>
+                    <div class="item-galeria">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&auto=format&fit=crop&q=60" alt="Hardware">
+                        <div class="texto-foto">
+                            <strong>Sistemas y PC</strong>
+                            Mantenimiento y soporte técnico preventivo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAFÉ & NEGOCIOS -->
+            <div id="cafe" class="seccion-info">
+                <h3>☕ Café & Negocios</h3>
+                <p style="color: #94a3b8; margin-bottom: 15px;">Pasión por el aroma, la calidad y la atención en el mercado local.</p>
+                <div class="grid-galeria">
+                    <div class="item-galeria">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&auto=format&fit=crop&q=60" alt="Café negro">
+                        <div class="texto-foto">
+                            <strong>Café & Brews</strong>
+                            Extracción precisa para resaltar notas de sabor.
+                        </div>
+                    </div>
+                    <div class="item-galeria">
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=500&auto=format&fit=crop&q=60" alt="Café con leche">
+                        <div class="texto-foto">
+                            <strong>Espresso & Lácteos</strong>
+                            Combinaciones equilibradas para el gusto diario.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROGRAMACIÓN -->
+            <div id="programacion" class="seccion-info">
+                <h3>🚀 Programación & Código</h3>
+                <p style="color: #94a3b8; margin-bottom: 15px;">Creando lógica, algoritmos y estructuras funcionales desde cero.</p>
+                <div class="grid-galeria">
+                    <div class="item-galeria">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&auto=format&fit=crop&q=60" alt="Codigo fuente">
+                        <div class="texto-foto">
+                            <strong>Lógica Web</strong>
+                            Escribiendo código estructurado en HTML, CSS y JS.
+                        </div>
+                    </div>
+                    <div class="item-galeria">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&auto=format&fit=crop&q=60" alt="Algoritmos">
+                        <div class="texto-foto">
+                            <strong>Algoritmos</strong>
+                            Resolución de problemas y desarrollo de software.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DISEÑO WEB -->
+            <div id="diseno" class="seccion-info">
+                <h3>🎨 Diseño & Creatividad</h3>
+                <p style="color: #94a3b8; margin-bottom: 15px;">Dándole estética, paletas de colores y estilo visual a las interfaces.</p>
+                <div class="grid-galeria">
+                    <div class="item-galeria">
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500&auto=format&fit=crop&q=60" alt="Diseño UI">
+                        <div class="texto-foto">
+                            <strong>UI Moderna</strong>
+                            Interfaces limpias, atractivas y responsivas.
+                        </div>
+                    </div>
+                    <div class="item-galeria">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31243264d0?w=500&auto=format&fit=crop&q=60" alt="Dark Mode">
+                        <div class="texto-foto">
+                            <strong>Dark Mode</strong>
+                            Estilos oscuros profesionales con acentos vibrantes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botones de contacto personalizados -->
+        <div class="redes-sociales">
+            <a href="https://wa.me/584162130763?text=¡Hola!%20Vi%20tu%20página%20web%20y%20quiero%20contactarte." target="_blank" class="btn-social">💬 WhatsApp</a>
+            <a href="https://instagram.com/rosmeryvalero98" target="_blank" class="btn-social">📸 Instagram</a>
+        </div>
+    </div>
+
+    <script>
+        function mostrarSeccion(idSeccion) {
+            const secciones = document.querySelectorAll('.seccion-info');
+            secciones.forEach(sec => sec.classList.remove('activo'));
+
+            const seleccionada = document.getElementById(idSeccion);
+            if (seleccionada) {
+                seleccionada.classList.add('activo');
+            }
+        }
+    </script>
+
+</body>
+</html>
